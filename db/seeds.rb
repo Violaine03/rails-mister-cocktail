@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleaning database ..."
+Cocktail.destroy_all
+Ingredient.destroy_all
+
+puts "Creating cocktail ..."
+
+lemon = { name: "lemon"}
+ice = { name: "ice" }
+mint_leave = { name: "mint leaves" }
+
+[ lemon, ice, mint_leave ].each do |attributes|
+    ingredient = Ingredient.create!(attributes)
+    puts "Created #{ingredient.name}"
+end
+
+puts "Finished!"
